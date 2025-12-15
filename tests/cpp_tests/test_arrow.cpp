@@ -10,7 +10,6 @@
 
 #include <cmath>
 #include <cstdlib>
-#include <vector>
 
 using LightGBM::ArrowChunkedArray;
 using LightGBM::ArrowTable;
@@ -153,39 +152,7 @@ class ArrowChunkedArrayTest : public testing::Test {
   /* ------------------------------------- SCHEMA CREATION ------------------------------------- */
 
   template <typename T>
-  ArrowSchema create_primitive_schema() {
-    std::logic_error("not implemented");
-  }
-
-  template <>
-  ArrowSchema create_primitive_schema<float>() {
-    ArrowSchema schema;
-    schema.format = "f";
-    schema.name = nullptr;
-    schema.metadata = nullptr;
-    schema.flags = 0;
-    schema.n_children = 0;
-    schema.children = nullptr;
-    schema.dictionary = nullptr;
-    schema.release = nullptr;
-    schema.private_data = nullptr;
-    return schema;
-  }
-
-  template <>
-  ArrowSchema create_primitive_schema<bool>() {
-    ArrowSchema schema;
-    schema.format = "b";
-    schema.name = nullptr;
-    schema.metadata = nullptr;
-    schema.flags = 0;
-    schema.n_children = 0;
-    schema.children = nullptr;
-    schema.dictionary = nullptr;
-    schema.release = nullptr;
-    schema.private_data = nullptr;
-    return schema;
-  }
+  ArrowSchema create_primitive_schema();
 
   ArrowSchema create_nested_schema(const std::vector<ArrowSchema*>& arrays) {
     auto children = static_cast<ArrowSchema**>(malloc(sizeof(ArrowSchema*) * arrays.size()));
@@ -208,6 +175,37 @@ class ArrowChunkedArrayTest : public testing::Test {
     return schema;
   }
 };
+
+/* explicit specializations must be defined outside the class */
+template <>
+ArrowSchema ArrowChunkedArrayTest::create_primitive_schema<float>() {
+  ArrowSchema schema;
+  schema.format = "f";
+  schema.name = nullptr;
+  schema.metadata = nullptr;
+  schema.flags = 0;
+  schema.n_children = 0;
+  schema.children = nullptr;
+  schema.dictionary = nullptr;
+  schema.release = nullptr;
+  schema.private_data = nullptr;
+  return schema;
+}
+
+template <>
+ArrowSchema ArrowChunkedArrayTest::create_primitive_schema<bool>() {
+  ArrowSchema schema;
+  schema.format = "b";
+  schema.name = nullptr;
+  schema.metadata = nullptr;
+  schema.flags = 0;
+  schema.n_children = 0;
+  schema.children = nullptr;
+  schema.dictionary = nullptr;
+  schema.release = nullptr;
+  schema.private_data = nullptr;
+  return schema;
+}
 
 /* --------------------------------------------------------------------------------------------- */
 /*                                             TESTS                                             */

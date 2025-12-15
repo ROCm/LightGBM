@@ -7,6 +7,8 @@ option(USE_CUDA "Enable CUDA-accelerated training " OFF)
 option(USE_ROCM "Enable ROCm-accelerated training " OFF)
 option(USE_DEBUG "Set to ON for Debug mode" OFF)
 option(USE_SANITIZER "Use sanitizer flags" OFF)
+option(ENABLE_CODE_COVERAGE "Enable code coverage instrumentation for C++ and CUDA code" OFF)
+
 set(
   ENABLED_SANITIZERS
   "address" "leak" "undefined"
@@ -80,6 +82,13 @@ elseif(MSVC)
   if(MSVC_VERSION LESS 1900)
     message(FATAL_ERROR "Insufficient MSVC version (${MSVC_VERSION})")
   endif()
+endif()
+
+# Host code coverage (GCC/Clang only, not MSVC)
+if(ENABLE_CODE_COVERAGE AND (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
+  message(STATUS "Enabling code coverage (host)")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-instr-generate -fcoverage-mapping -O0")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-instr-generate -fcoverage-mapping -O0")
 endif()
 
 if(USE_SWIG)
@@ -277,8 +286,13 @@ if(USE_ROCM)
 
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${DISABLED_WARNINGS}")
     set(CMAKE_HIP_FLAGS "${CMAKE_HIP_FLAGS} ${DISABLED_WARNINGS}")
-
-    if(USE_DEBUG)
+    
+    if(ENABLE_CODE_COVERAGE)
+      message(STATUS "Enabling code coverage (ROCm/HIP)")
+      if(CMAKE_HIP_COMPILER)
+        set(CMAKE_HIP_FLAGS "${CMAKE_HIP_FLAGS} -fprofile-instr-generate -fcoverage-mapping -O0")
+      endif()
+    elseif(USE_DEBUG)
       set(CMAKE_HIP_FLAGS "${CMAKE_HIP_FLAGS} -g -O0")
     else()
       set(CMAKE_HIP_FLAGS "${CMAKE_HIP_FLAGS} -O3")
@@ -852,3 +866,4 @@ if(INSTALL_HEADERS)
       FILES_MATCHING PATTERN "*.h"
     )
 endif()
+

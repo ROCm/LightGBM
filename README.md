@@ -36,6 +36,12 @@ Benefiting from these advantages, LightGBM is being widely-used in many [winning
 
 [Comparison experiments](https://github.com/microsoft/LightGBM/blob/master/docs/Experiments.rst#comparison-experiment) on public datasets show that LightGBM can outperform existing boosting frameworks on both efficiency and accuracy, with significantly lower memory consumption. What's more, [distributed learning experiments](https://github.com/microsoft/LightGBM/blob/master/docs/Experiments.rst#parallel-experiment) show that LightGBM can achieve a linear speed-up by using multiple machines for training in specific settings.
 
+
+Get Started on ROCm and Documentation
+-----------------------------
+
+LightGBM is enabled and optimised for ROCm software which enables the library to run on AMD Instinct GPUs. For details on installation on ROCm refer to the [ROCm Documentation](https://rocm.docs.amd.com/projects/lightgbm/en/latest/index.html).
+
 Get Started and Documentation
 -----------------------------
 
