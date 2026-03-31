@@ -46,4 +46,4 @@ ROCm-Finance LightGBM documentation is organized into the following categories:
 
    .. grid-item-card:: Tutorial
 
-      * `Examples (GitHub) <https://github.com/ROCm/rocm-finance/tree/main/examples/lightgbm>`__
+      * `Examples (GitHub) <https://github.com/ROCm/rocm-finance/tree/release/26.01/examples/lightgbm>`__
