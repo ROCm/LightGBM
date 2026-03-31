@@ -24,7 +24,7 @@ subtrees:
         title: Python API (upstream)
   - caption: Tutorial
     entries:
-      - url: https://github.com/ROCm/rocm-finance/tree/${branch}/examples/lightgbm
+      - url: https://github.com/ROCm/rocm-finance/tree/release/25.11/examples/lightgbm
         title: Examples
   - caption: About
     entries:
