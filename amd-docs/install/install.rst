@@ -14,7 +14,7 @@ Prerequisites
 Before proceeding, ensure that you have installed a supported ROCm version,
 operating system, and Python version that are compatible with the ROCm Finance
 libraries. Verify that your system includes a supported AMD Instinct GPU. For
-guidance, see `ROCm-Finance installation prerequisites
+guidance, see `AMD Finance installation prerequisites
 <https://rocm.docs.amd.com/projects/rocm-finance/en/latest/install/prerequisites.html>`__.
 
 For a consistent and streamlined setup experience, it's recommended to use

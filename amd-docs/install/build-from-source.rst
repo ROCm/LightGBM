@@ -2,9 +2,9 @@
    :description: Build LightGBM with ROCm support from source for AMD GPUs
    :keywords: amd, rocm, finance, financial, fintech, algorithm, gpu, install, setup, env, docker, package, contribute, develop, build, pip, make
 
-*******************************
-Build ROCm LightGBM from source
-*******************************
+************************************
+Build LightGBM on ROCm from source
+************************************
 
 Prerequisites
 =============
@@ -23,11 +23,11 @@ for instructions.
 Build from source
 =================
 
-1. Clone the `<https://github.com/ROCm/LightGBM>`__ source code from GitHub.
+1. Clone the `<https://github.com/AMD-Ecosystem/LightGBM>`__ source code from GitHub.
 
    .. code-block:: shell
 
-      git clone --recurse-submodules https://github.com/ROCm/lightgbm/
+      git clone --recurse-submodules https://github.com/AMD-Ecosystem/LightGBM/
 
 2. Create and activate a Python virtual environment.
 

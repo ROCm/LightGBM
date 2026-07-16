@@ -23,13 +23,13 @@ kernels and efficient memory handling, delivering meaningful performance gains
 over CPU‑only baselines, especially for finance pipelines rich in categorical
 data.
 
-LightGBM is part of the `AMD ROCm Finance toolkit
+LightGBM is part of the `AMD Finance toolkit
 <https://rocm.docs.amd.com/projects/rocm-finance/en/latest/>`__.
 
-The ROCm-Finance LightGBM source code is hosted on GitHub at
-`<https://github.com/ROCm/LightGBM/>`__.
+The AMD Finance LightGBM source code is hosted on GitHub at
+`<https://github.com/AMD-Ecosystem/LightGBM/>`__.
 
-ROCm-Finance LightGBM documentation is organized into the following categories:
+AMD Finance LightGBM documentation is organized into the following categories:
 
 .. grid:: 2
    :gutter: 3
@@ -46,4 +46,4 @@ ROCm-Finance LightGBM documentation is organized into the following categories:
 
    .. grid-item-card:: Tutorial
 
-      * `Examples (GitHub) <https://github.com/ROCm/rocm-finance/tree/release/26.01/examples/lightgbm>`__
+      * `Examples (GitHub) <https://github.com/AMD-Ecosystem/rocm-finance/tree/release/25.11/examples/lightgbm>`__
